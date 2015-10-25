@@ -1,0 +1,6 @@
+jenkins:
+  build: images/jenkins
+  ports:
+   - "8080:8080"
+  volumes:
+   - ./volumes/jenkins:/var/jenkins_home
