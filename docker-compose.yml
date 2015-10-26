@@ -1,6 +1,15 @@
 jenkins:
   build: images/jenkins
-  ports:
-   - "8080:8080"
-  volumes:
-   - ./volumes/jenkins:/var/jenkins_home
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./volumes/jenkins:/var/jenkins_home
+    links:
+      - sonarqube
+sonarqube:
+    build: images/sonarqube
+    ports:
+      - "9000:9000"
+      - "9092:9092"
+    volumes:
+      - ./volumes/sonarqube/data:/opt/sonarqube/extensions
